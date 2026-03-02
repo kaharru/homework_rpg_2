@@ -2,7 +2,7 @@ package com.narxoz.rpg.enemy;
 
 import com.narxoz.rpg.combat.Ability;
 import com.narxoz.rpg.loot.LootTable;
-
+import java.util.Map;
 import java.util.List;
 
 /**
@@ -59,31 +59,37 @@ import java.util.List;
  *   - How do you allow Prototype to modify cloned stats?
  */
 public interface Enemy {
+    String getName();
+    int getHealth();
+    int getDamage();
+    int getDefense();
+    int getSpeed();
 
-    // TODO: Define core stat methods
-    // - String getName()
-    // - int getHealth()
-    // - int getDamage()
-    // - int getDefense()
-    // - int getSpeed()
+    String getElement();
+    String getAIBehavior();
 
-    // TODO: Define ability methods
-    // - List<Ability> getAbilities()
+    List<Ability> getAbilities();
+    LootTable getLootTable();
+    Map<Integer, Integer> getPhases();
 
-    // TODO: Define loot methods
-    // - LootTable getLootTable()
+    void setName(String name);
+    void setHealth(int health);
+    void setDamage(int damage);
+    void setDefense(int defense);
+    void setSpeed(int speed);
 
-    // TODO: Define display method
-    // - void displayInfo()   (shows all stats, abilities, loot)
+    void setElement(String element);
+    void setAIBehavior(String aiBehavior);
 
-    // TODO: Define clone method for Prototype pattern
-    // - Enemy clone()
-    //
-    // CRITICAL: This must perform DEEP COPY!
-    // If you do shallow copy, cloned enemies will share ability
-    // and loot references with the original — causing bugs!
-    //
-    // Test your clone: modify the clone's abilities.
-    // Does the original change? If yes → your copy is too shallow!
+    void addAbility(Ability ability);
+    void setAbilities(List<Ability> abilities);
+
+    void setLootTable(LootTable lootTable);
+
+    void addPhase(int phaseNumber, int healthThreshold);
+
+    Enemy clone();
+
+    void displayInfo();
 
 }
