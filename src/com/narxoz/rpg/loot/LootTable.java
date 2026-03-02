@@ -31,15 +31,13 @@ package com.narxoz.rpg.loot;
  * - int getExperienceDrop()
  * - String getLootInfo()
  * - LootTable clone()   <-- Critical for Prototype pattern!
- */
+ */import java.util.List;
 public interface LootTable {
 
     // TODO: Define loot table behavior methods
-    // Consider:
-    // - List<String> getItems()
-    // - int getGoldDrop()
-    // - int getExperienceDrop()
-    // - String getLootInfo()
-    // - LootTable clone()  <-- IMPORTANT for deep copying!
+    List<String> getItems();
+    int getGoldDrop();
+    int getExperienceDrop();
+    LootTable clone();
 
 }
